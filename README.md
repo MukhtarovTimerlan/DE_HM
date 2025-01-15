@@ -2,20 +2,21 @@
 **Student: Мухтаров Тимерлан Тахирович**
 
 Структура проекта:
-  DE_HM/
-├── data/
-│   ├── raw/
-│   └── preprocessed/
-├── db/
-│   └── apartments.db
-├── src/
-│   ├── data_collection.py
-│   ├── data_preprocessing.py
-│   ├── preprocessing.ipynb
-│   └── data_storage.py
-├── dashboard.py
-├── pipeline.py
-└── requirements.txt
+  DE_HM/  
+├── data/  
+│   ├── raw/  
+│   └── preprocessed/  
+├── db/  
+│   └── apartments.db  
+├── src/  
+│   ├── data_collection.py  
+│   ├── data_preprocessing.py  
+│   ├── preprocessing.ipynb  
+│   └── data_storage.py  
+├── dashboard.py  
+├── pipeline.py  
+└── requirements.txt  
+
 
 
 ## 1. Сбор данных (data_collection.py)
