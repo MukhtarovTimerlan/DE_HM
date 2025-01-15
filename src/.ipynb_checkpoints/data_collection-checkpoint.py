@@ -4,6 +4,7 @@ from fake_useragent import UserAgent
 import pandas as pd
 import time
 
+
 BASE_URL = "https://www.avito.ru"
 ua = UserAgent()
 
@@ -68,19 +69,22 @@ def get_listing_data(listing_url):
     return property_data
 
 
-def main():
+def collect_data():
     url = "https://www.avito.ru/moskva/kvartiry/prodam-ASgBAgICAUSSA8YQ?cd=1&context=H4sIAAAAAAAA_0RSTXebMBD8L772EEHiOJBTKoIKFUpEYpB0A0EwqrBT8yFIX_97n4jzetq3erOzM6MtfNf_0_sO8DfydD7XcmhPx8197293rr-JjoOMulBVSE-lNu2TNq3sMlOiUInMtDg0rWAH24-cpe-lu5WRepfRAF8An2hfoQeAAzpVCEcEPQKs6OihBHCcNgRhDIO0qeA3gHdpM8AFYJY2A_oOOKb9gALAd2lbwRuA9w3Ab7Qn8ArwgE4rJmnM74mOFoev6EgQBNw0AJ9pP0ADeGA5b9Z693OH9adeieYDd7NB5FvAYHTLYNyKfJ4q5-IHZR9FXo1Zly3S_e-77LylzMMe52EvWGxnewbjvsi3Z-lYzLBjMF4ECx3ByMpdO6aVLNPyqL9yuQX8mU6e1YVTBQM6rr4DmwcEWNkaXLgVZ6kWrrfUe_1o-RJF152lSw7rn_z6fCcquSaKmk9_4cJz5-Nrf6Ie5nX29cFN4CwjtTckNO2T2i_kVXhvL7OMjqmuf6RfGmub_0SgA_D1JddZRu0so87RFTpMIrzcgpsdZEdO7DrWAulF5NZ37DEGWntEd_7m7Xzqnoumtu3O38hiKPSp2dz__RcAAP__7YCuinoCAAA&user=1"
-    listing_links = get_listing_links(url)
-    all_data = []
-    for link in listing_links:
-        print(f"Парсим: {link}")
-        data = get_listing_data(link)
-        if data:
-            all_data.append(data)
-        time.sleep(10)
-    print(all_data)
-    df = pd.DataFrame(all_data)
-    df.to_csv("moscow_flat.csv", index=False)
+    try:
+        listing_links = get_listing_links(url)
+        all_data = []
+        for link in listing_links:
+            print(f"Парсим: {link}")
+            data = get_listing_data(link)
+            if data:
+                all_data.append(data)
+            time.sleep(10)
+        df = pd.DataFrame(all_data)
+        old_df = pd.read_csv('data/raw/moscow_flats_dataset.csv')
+        fin_df = pd.concat([old_df, df])
+        fin_df.to_csv('data/raw/moscow_flats_dataset_1.csv',index=False)
+    except Exception as e:
+        print(e)
 
-if __name__ == "__main__":
-    main()
+
