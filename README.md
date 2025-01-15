@@ -66,6 +66,16 @@
 
 Для представления данных и результатов анализа был создан интерактивный дашборд с использованием **Streamlit**. Он включает в себя графики, полученные на этапе **EDA**, и позволяет итеративно выбирать нужные для отображения признаки.
 
+<img width="1359" alt="image" src="https://github.com/user-attachments/assets/1a939a9a-412d-4cfd-b9bf-ae5529b20d26" />
+
+<img width="726" alt="image" src="https://github.com/user-attachments/assets/46c7fa66-abb4-42b3-98ab-3e04829cdeef" />
+
+<img width="721" alt="image" src="https://github.com/user-attachments/assets/e5754857-0504-457a-82e2-5bd6ee03d292" />
+
+<img width="723" alt="image" src="https://github.com/user-attachments/assets/9462bd09-aa9d-4960-b047-cb9a7595f752" />
+
+
+
 *Файл для дашборда*: [dashboard.py](./dashboard.py)
 
 ## 4. Сохранение данных в хранилище данных (data_storage.py)
